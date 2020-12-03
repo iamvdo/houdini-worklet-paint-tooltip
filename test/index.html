@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <style>
+  html {
+    height: 100%;
+    background: radial-gradient(at 50% 200px,white, hsl(195, 85%, 65%));
+  }
+  .hello {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: #fff;
+    height: 150px;
+    width: 200px;
+    margin: 50px auto;
+    border-radius: 10px;
+    background: hsl(193, 100%, 30%);
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-image-source: paint(tooltip);
+    border-image-slice: 0 0 100% 0;
+    border-image-width: var(--border-width);
+    border-image-outset: var(--border-width);
+    --tooltip-position: 50%;
+    --tooltip-size: 30px;
+    --border-width: 20px;
+  }
+  </style>
+</head>
+<body>
+  <div class="hello">HELLO</div>
+  <script>
+    if ('paintWorklet' in CSS) {
+      CSS.paintWorklet.addModule('../index.js');
+    }
+  </script>
+</body>
+</html>
